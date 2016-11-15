@@ -106,7 +106,7 @@ public class loadPosts extends HttpServlet {
          
         }
            
-
+        postSaved.clear();
          // return list;
           
 
