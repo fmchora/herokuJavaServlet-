@@ -1,0 +1,66 @@
+/****************************
+ * Landon Woolley
+ * October 27, 2016
+ * Mammoth Longboards
+ * Version 3.0
+ * style.css
+ ****************************/
+
+body {
+    background-color: #f2f2f2;
+	margin:0px;
+	padding:0px;
+}
+
+div {
+	font-weight: bold;
+	font-family: font;
+	font-size: 200%;
+	text-align: center;
+}
+
+@font-face {
+	font-family: font;
+	src: url("../fonts/font.otf");
+}
+
+a {
+	color: darkblue;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+a:hover {
+	color: purple;
+}
+
+img {
+    display: block;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.image:hover img {
+    transform: scale(1.1);
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+}
+
+h1 { 
+	font-family: font;
+	font-size: 400%;
+	text-align: center;
+	font-weight: normal;
+	position: absolute; 
+	top: 100px; 
+	width: 100%; 
+}
+
+h2 { 
+	font-family: font;
+	font-size: 100%;
+	text-align: center;
+}
