@@ -64,3 +64,23 @@ h2 {
 	font-size: 100%;
 	text-align: center;
 }
+
+h3 { 
+	font-family: font;
+	font-size: 50%;
+	text-align: center;
+        color: #f2f2f2;
+}
+
+h4 { 
+	font-family: font;
+	font-size: 100%;
+	text-align: center;
+        color: #f2f2f2;
+}
+
+div.twitter {
+        font-weight: bold;
+	font-family: font;
+	text-align: center;
+}

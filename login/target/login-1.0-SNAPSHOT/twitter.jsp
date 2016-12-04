@@ -3,7 +3,7 @@
 <html>
     <head>
         <link rel="icon" href="images/favicon.png">
-        <link rel="stylesheet" href="stylesheets/style.css">
+        <link rel="stylesheet" href="stylesheets/main.css">
         <title>Twitter</title>
     </head>
     <body>
@@ -21,13 +21,14 @@
             </form>
             Hashtag
         </div>
-        <h2>
-            <c:forEach var="status" items="${tweets}" >
-                
-                <p>${status.getUser().getScreenName()} : ${status.getText()}</p>
-                
-            </c:forEach>
-        </h2>
+       <br>
+        <c:forEach var="status" items="${tweets}">
+            <div class="twitter" style="margin: 0 auto; border-radius: 10px; background: #00ACEE; padding: 1px; width: 700px">
+                <h4>${status.getUser().getScreenName()}:</h4>
+                <h3>${status.getText()}</h3>
+            </div>
+            <br>
+        </c:forEach>
         <div>
             <img src="images/line.png" alt="line" width="50%">
             <a href="index.html">Web Applications</a>

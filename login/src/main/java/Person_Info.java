@@ -4,12 +4,8 @@
  * and open the template in the editor.
  */
 
-
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.sql.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Felipe
  */
-@WebServlet(name = "Persons", urlPatterns = {"/Persons"})
-public class Persons extends HttpServlet {
+@WebServlet(urlPatterns = {"/Person_Info"})
+public class Person_Info extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,50 +30,16 @@ public class Persons extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        try {
-            Class.forName("org.postgresql.Driver");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Persons.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        String dbUrl = System.getenv("JDBC_DATABASE_URL");
-
-        if (dbUrl == null) {
-            dbUrl = "jdbc:postgresql://localhost:5432/ancestors?user=postgres&password=password";
-        }
-
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Persons</title>");
+            out.println("<title>Servlet Person_Info</title>");            
             out.println("</head>");
             out.println("<body>");
-
-            out.println("<h4>" + dbUrl + "</h4>");
-
-            try (
-                    Connection connection = DriverManager.getConnection(dbUrl);
-                    Statement statement = connection.createStatement();
-                    ResultSet resultSet = statement.executeQuery("SELECT id, name, age, birthday From person");) {
-
-                while (resultSet.next()) {
-                    int id = resultSet.getInt("id");
-                    String name = resultSet.getString("name");
-                    int age = resultSet.getInt("age");
-                    String birthday = resultSet.getString("birthday");
-
-                    out.println("<p>" + id + ", " + name + "</p>");
-                    out.println("<p>" + "Age " + age + ", Birthday " + birthday + "</p>");
-                }
-
-            } catch (SQLException ex) {
-                Logger.getLogger(Persons.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
+            out.println("<h1>Servlet Person_Info at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
